@@ -12,6 +12,7 @@ st.write(
 '''
 )
 # Generate and display the figure
+st.write("How did survival rates differ across passenger classes and age groups?")
 fig1 = visualize_demographic()
 st.plotly_chart(fig1, use_container_width=True)
 
