@@ -1,35 +1,24 @@
 import streamlit as st
 
-from apputil import *
+from apputil import visualize_demographic, visualize_families
 
-# Load Titanic dataset
-df = pd.read_csv('https://raw.githubusercontent.com/leontoddjohnson/datasets/main/data/titanic.csv')
-
+st.write("# Titanic Visualization 1")
 st.write(
-'''
-# Titanic Visualization 1
-
-'''
+    "How did survival rates differ across passenger classes and age groups?"
 )
-# Generate and display the figure
-st.write("How did survival rates differ across passenger classes and age groups?")
 fig1 = visualize_demographic()
 st.plotly_chart(fig1, use_container_width=True)
 
+st.write("# Titanic Visualization 2")
 st.write(
-'''
-# Titanic Visualization 2
-'''
+    "The counts are similar: 354 passengers have a listed relative aboard, "
+    "and 357 share a last name with another passenger. They differ because "
+    "relatives can have different last names, and unrelated passengers can "
+    "share one."
 )
-# Generate and display the figure
+st.write(
+    "How does average ticket fare vary with family size across passenger "
+    "classes?"
+)
 fig2 = visualize_families()
 st.plotly_chart(fig2, use_container_width=True)
-
-st.write(
-'''
-# Titanic Visualization Bonus
-'''
-)
-# Generate and display the figure
-fig3 = visualize_family_size()
-st.plotly_chart(fig3, use_container_width=True)
